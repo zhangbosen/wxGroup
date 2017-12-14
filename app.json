@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/mine/index",
     "pages/detail/index"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
