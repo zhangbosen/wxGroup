@@ -14,7 +14,7 @@
 </view>
 -->
 
-<view class="section">
+<view class="section" wx:for="{{groupList}}">
   <view class="zbs">
 
     <view class="flex-item" bindtap="toDetail">

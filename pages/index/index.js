@@ -4,10 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    groupList: []
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,32 +13,17 @@ Page({
     })
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+    var that = this
+    wx.request({
+      url: 'https://group.mrourou.com/wx/group',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({groupList:res.data.data.list})
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -56,5 +38,17 @@ Page({
     wx.navigateTo({
       url: "/pages/detail/index"
     })
+  },
+  onShareAppMessage: function (res) {
+    return {
+      title: '各种各样的群',
+      path: '/pages/add/index',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })
