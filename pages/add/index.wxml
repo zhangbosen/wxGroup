@@ -1,11 +1,28 @@
-<view class="zbs">
-  <view class="top">
-    <image class="groupPic"></image>
-    <text class="groupDes">这是群的描述文字</text>
+<form>
+
+  <view class="zbs">
+
+    <view class="groupPic">
+      <image src="{{src}}"></image>
+      <button bindtap="chooseImg" size="mini">选择群头像</button>
+    </view>
+
+    <view class="groupTitle">
+      <view class="section__title">给群起个名字吧：</view>
+      <input name="input" placeholder="创建群名"/>
+    </view>
+
+   
+
+    <view class="groupDes">
+      <view>这是怎样的一个群呢：</view>
+    <textarea placeholder="这个群里都是帅锅哦~"></textarea>
+    </view>
+
+    <view class="btn">
+      <button formType="submit" type="primary">提交</button>
+    </view>
   </view>
-  <view class="bottom">
-    <button type="primary">我要进群</button>
-    <button type="primary">邀请好友</button>
-    <button type="default">分享朋友圈</button>
-  </view>
-</view>
+  
+
+</form>

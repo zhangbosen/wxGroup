@@ -1,31 +1,50 @@
 .zbs {
-  height: 800rpx;
+  padding: 0 30rpx;
+}
+
+/* input组 */
+.groupTitle {
+  margin: 50rpx 0;
+}
+.groupTitle view, .groupPic view, .groupDes view {
+  margin-bottom: 25rpx;
+  text-align: center;
+  text-shadow: 1rpx 1rpx 3rpx rgba(0, 0, 0, 0.4);
+  color: #f00;
+}
+.groupTitle input {
+  box-sizing: border-box;
+  padding: 10rpx;
+  border: 1rpx solid #ccc;
+  border-left: none;
+  border-right: none;
+  height: 80rpx;
+}
+
+/* 头像组 */
+.groupPic {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
-.top {
-  width: 700rpx;
-  height: 300rpx;
-  margin-bottom: 30rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-.top .groupPic {
+.groupPic image {
   width: 150rpx;
   height: 150rpx;
-  border: 1px solid #ccc;
+  border: 1rpx solid #ccc;
 }
-.top .groupDes {
-  font-size: 30rpx;
-  color: #9b9b9b;
+
+/* textarea组 */
+.groupDes {
+  margin: 100rpx 0;
 }
-.bottom {
-  width: 700rpx;
+.groupDes textarea {
+  box-sizing: border-box;
+  padding: 10rpx;
+  width: 100%; 
+  border: 1rpx solid #ccc;
+  border-left: none;
+  border-right: none;
 }
-.bottom button {
-  margin-bottom: 30rpx;
-}
+
+/* 按钮组 */
+
