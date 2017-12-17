@@ -1,7 +1,7 @@
 
 Page({
   data: {
-    src: ""
+    src: "../../res/003.png"
   },
   chooseImg: function(){
     var that = this;

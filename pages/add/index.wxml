@@ -2,21 +2,17 @@
 
   <view class="zbs">
 
-    <view class="groupPic">
+    <view class="groupPic" bindtap="chooseImg">
       <image src="{{src}}"></image>
-      <button bindtap="chooseImg" size="mini">选择群头像</button>
     </view>
 
     <view class="groupTitle">
-      <view class="section__title">给群起个名字吧：</view>
       <input name="input" placeholder="创建群名"/>
     </view>
 
    
-
     <view class="groupDes">
-      <view>这是怎样的一个群呢：</view>
-    <textarea placeholder="这个群里都是帅锅哦~"></textarea>
+      <textarea placeholder="简单介绍一下这个群都适合哪些人群吧~"></textarea>
     </view>
 
     <view class="btn">
