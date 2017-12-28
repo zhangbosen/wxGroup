@@ -22,7 +22,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "点击群卡片",
+					"pathName": "pages/add/index",
+					"query": "",
+					"scene": "1008"
+				}
+			]
 		}
 	}
 }

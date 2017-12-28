@@ -13,11 +13,25 @@ Page({
     })
   },
   onLoad: function () {
+    if (app.globalData.token) {
+      this.getGroupList()
+    } else {
+      app.loginCallback = res => {
+        this.getGroupList()
+      }
+    }
+    
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  },
+  getGroupList: function() {
     var that = this
     wx.request({
       url: 'https://group.mrourou.com/wx/group',
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json', // 默认值
+        'wx-group-token': app.globalData.token
       },
       success: function (res) {
         console.log(res.data)
@@ -44,9 +58,15 @@ Page({
       title: '各种各样的群',
       path: '/pages/add/index',
       success: function (res) {
-        // 转发成功
+        console.log(res)
+        var navUrl = '/pages/add/index?shareTicket=' + res.shareTickets[0]
+        console.log(navUrl)
+        wx.navigateTo({
+          url: navUrl
+        })
       },
       fail: function (res) {
+        console.log(res)
         // 转发失败
       }
     }

@@ -1,7 +1,7 @@
 <form>
 
   <view class="zbs">
-
+    <open-data type="groupName" open-gid="{{shareTicket}}"></open-data>
     <view class="groupPic" bindtap="chooseImg">
       <image src="{{src}}"></image>
     </view>
