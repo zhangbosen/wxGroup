@@ -49,5 +49,21 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e)
+    wx.request({
+      url: 'https://group.mrourou.com/wx/group',
+      header: {
+        'content-type': 'application/json', // 默认值
+        'wx-group-token': app.globalData.token
+      },
+      method: 'PUT',
+      data: {
+        groupName: groupNa,
+        groupImage: groupImg,
+        groupDesc:groupDesc
+      },
+      success: res => {
+        console.log(res)
+      }
+    })
   },
 })
