@@ -1,18 +1,17 @@
-<form>
+<form bindsubmit="formSubmit">
 
   <view class="zbs">
-    <open-data type="groupName" open-gid="{{shareTicket}}"></open-data>
     <view class="groupPic" bindtap="chooseImg">
       <image src="{{src}}"></image>
     </view>
 
     <view class="groupTitle">
-      <input name="input" placeholder="创建群名"/>
+      <input name="input" placeholder="创建群名" value="{{groupName}}"/>
     </view>
 
    
     <view class="groupDes">
-      <textarea placeholder="简单介绍一下这个群都适合哪些人群吧~"></textarea>
+      <textarea placeholder="简单介绍一下这个群都适合哪些人群吧~" />
     </view>
 
     <view class="btn">

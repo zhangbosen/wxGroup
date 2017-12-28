@@ -2,7 +2,10 @@ const app = getApp()
 Page({
   data: {
     src: "../../res/003.png",
-    shareTicket: ""
+    shareTicket: "",
+    openGId:"",
+    groupName:"",
+    groupDesc:""
   },
   onLoad: function (option) {
     var that = this
@@ -24,7 +27,7 @@ Page({
           success: res => {
             console.log(res)
             that.setData({
-              shareTicket:res.data.data.openGId
+              openGId:res.data.data.openGId
             })
           }
         })
@@ -43,5 +46,8 @@ Page({
         })
       }
     })
-  }
+  },
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e)
+  },
 })
