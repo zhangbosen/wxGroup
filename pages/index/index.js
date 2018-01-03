@@ -15,9 +15,11 @@ Page({
   onLoad: function () {
     if (app.globalData.token) {
       this.getGroupList()
+      this.updateUserInfo()
     } else {
       app.loginCallback = res => {
         this.getGroupList()
+        this.updateUserInfo()
       }
     }
     
@@ -39,12 +41,27 @@ Page({
       }
     })
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  updateUserInfo: function(e) {
+    wx.getUserInfo({
+      withCredentials: true,
+      success: res => {
+        console.log(res)
+        wx.request({
+          url: 'https://group.mrourou.com/wx/user',
+          header: {
+            'content-type': 'application/json', // 默认值
+            'wx-group-token': app.globalData.token
+          },
+          method:"POST",
+          data:{
+            encryptedData: res.encryptedData,
+            iv: res.iv
+          },
+          success: function (res) {
+            console.log(res.data)
+          }
+        })
+      }
     })
   },
   //自己定义的方法
