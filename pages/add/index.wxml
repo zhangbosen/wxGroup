@@ -11,7 +11,7 @@
 
    
     <view class="groupDes">
-      <textarea placeholder="简单介绍一下这个群都适合哪些人群吧~" />
+      <textarea name="textarea" value="{{groupDesc}}" placeholder="简单介绍一下这个群都适合哪些人群吧~" />
     </view>
 
     <view class="btn">
@@ -21,3 +21,33 @@
   
 
 </form>
+
+
+<!-- 模态窗开始 -->
+
+<!--mask 背景模糊版-->  
+<view class="drawer_screen" bindtap="disappear" wx:if="{{showModalStatus}}"></view>  
+<!--content-->  
+<!--使用animation属性指定需要执行的动画-->  
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+  
+  <form bindsubmit="perSubmit">
+  <!--drawer content-->  
+  <view class="drawer_title">请填写您的微信号和手机号</view>  
+  <view class="drawer_content">  
+    <view class="top grid">  
+      <label class="title col-0">微信号</label>  
+      <input class="input_base input_h30 col-1" name="wxName" value="{{wxName}}"></input>  
+    </view>  
+    <view class="top grid">  
+      <label class="title col-0">手机号</label>  
+      <input class="input_base input_h30 col-1" name="phone" value="{{phone}}"></input>  
+    </view>  
+     
+  </view>  
+  <button class="btn_ok" bindtap="tapOk" formType="submit">确定</button> 
+  </form>
+
+</view> 
+
+<!-- 模态窗结束 -->
