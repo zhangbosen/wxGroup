@@ -1,9 +1,12 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/add/index",
+    "pages/robot/index",
     "pages/mine/index",
-    "pages/detail/index",
-    "pages/add/index"
+    "pages/detail/index"
+    
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
