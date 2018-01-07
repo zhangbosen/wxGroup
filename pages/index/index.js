@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    // groupList: []
     groupList: []
   },
   //事件处理函数
@@ -65,9 +66,10 @@ Page({
     })
   },
   //自己定义的方法
-  toDetail: function(){
+  toDetail: function(e){
+    var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: "/pages/detail/index"
+      url: "/pages/detail/index?groupWxId=" + id
     })
   },
   onShareAppMessage: function (res) {

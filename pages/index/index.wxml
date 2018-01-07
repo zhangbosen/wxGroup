@@ -14,15 +14,15 @@
 </view>
 -->
 
-<view class="section" wx:for="{{groupList}}">
+<view class="section">
   <view class="zbs">
 
-    <view class="flex-item" bindtap="toDetail">
+    <view wx:for="{{groupList}}" class="flex-item" bindtap="toDetail" data-id="{{item.groupWxId}}">
       <view class="left">
         <image></image>
       </view>
       <view class="right">
-        <text class="groupTitle">超劲爆音乐群</text>
+        <text class="groupTitle">{{item.groupId}}</text>
         <text class="groupDes">如痴如醉的音乐</text>
       </view>
     </view>
